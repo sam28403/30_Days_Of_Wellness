@@ -10,15 +10,14 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
@@ -36,11 +35,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cc.samlab.wellness.model.Day
@@ -88,8 +87,8 @@ fun TopAppBar(modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         title = {
             Text(
-                text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.displayMedium,
+                text = stringResource(R.string.app_name2),
+                style = MaterialTheme.typography.titleLarge,
             )
         },
         modifier = modifier
@@ -122,18 +121,20 @@ fun CardList(
             ) {
                 Text(
                     text = stringResource(day.dayNumber),
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.titleSmall,
                 )
                 Text(
                     text = stringResource(day.title),
-                    style = MaterialTheme.typography.displaySmall,
+                    style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
+                Spacer(modifier = Modifier.height(6.dp))
                 Image(
                     painter = painterResource(day.imageRes),
                     contentDescription = stringResource(day.descriptionRes),
                     alignment = Alignment.TopCenter,
                     contentScale = ContentScale.FillWidth,
+                    modifier = Modifier.clip(MaterialTheme.shapes.large),
                 )
                 if (expanded) {
                     Text(
