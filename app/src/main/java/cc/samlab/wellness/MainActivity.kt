@@ -150,7 +150,7 @@ fun CardList(
                 Spacer(modifier = Modifier.height(6.dp))
                 Image(
                     painter = painterResource(day.imageRes),
-                    contentDescription = stringResource(day.descriptionRes),
+                        contentDescription = stringResource(day.descriptionRes),
                     alignment = Alignment.TopCenter,
                     contentScale = ContentScale.FillWidth,
                     modifier = Modifier
