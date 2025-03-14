@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "cc.samlab.wellness"
-    compileSdkPreview = "Baklava"
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "cc.samlab.wellness"
         minSdk = 28
-        targetSdkPreview = "Baklava"
-        versionCode = 11
-        versionName = "1.0.10"
+        targetSdk = 36
+        versionCode = 12
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +37,7 @@ android {
     buildFeatures {
         compose = true
     }
+    buildToolsVersion = "36.0.0"
 }
 
 dependencies {
